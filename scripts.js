@@ -1,5 +1,5 @@
 import { books, authors, genres, BOOKS_PER_PAGE } from './data.js'
-import './book-preview.js'; // Imported the custom element from the book-preview file.
+import './components/book-preview.js'; // Imported the custom element from the book-preview file.
 
 /* BookConnect class manages the main functionality of the book application.
 *Used class for a more cleaner way to work with objects
@@ -25,24 +25,10 @@ class BookConnect {
       }
 
 /* creates a book preview element for display in the book list */
-createBookPreview({ author, id, image, title }) {
-    const element = document.createElement('button')
-    element.classList = 'preview'
-    element.setAttribute('data-preview', id)
-
-    element.innerHTML = `
-        <img
-            class="preview__image"
-            src="${image}"
-        />
-        
-        <div class="preview__info">
-            <h3 class="preview__title">${title}</h3>
-            <div class="preview__author">${authors[author]}</div>
-        </div>
-    `;
-
-    return element;
+createBookPreview(book) {
+  const element = document.createElement('book-preview');
+  element.data = { ...book, authors };
+  return element;
 }
 /* populates the book list with previews.
  * this function accepts a list of books and appends their previews to the DOM */

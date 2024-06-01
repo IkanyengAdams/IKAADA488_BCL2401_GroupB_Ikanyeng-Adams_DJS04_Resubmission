@@ -8,11 +8,12 @@ class BookPreview extends HTMLElement {
       this.render();
   }
 
-  set data({ author, id, image, title }) {
+  set data({ author, id, image, title, authors }) {
       this.setAttribute('author', author);
       this.setAttribute('id', id);
       this.setAttribute('image', image);
       this.setAttribute('title', title);
+      this.authors = authors;
       this.render();
   }
 
@@ -26,6 +27,7 @@ class BookPreview extends HTMLElement {
   }
 
   render() {
+    const authorName = this.authors ? this.authors[this.getAttribute('author')] : `Unknown Author`;
       this.shadowRoot.innerHTML = `
           <style>
               .preview {
@@ -56,12 +58,13 @@ class BookPreview extends HTMLElement {
               <img class="preview__image" src="${this.getAttribute('image')}" />
               <div class="preview__info">
                   <h3 class="preview__title">${this.getAttribute('title')}</h3>
-                  <div class="preview__author">${authors[this.getAttribute('author')]}</div>
+                  <div class="preview__author">${authorName}</div>
+                  </div>
               </div>
           </button>
       `;
   }
 }
-
+// Defined the custom element
 customElements.define('book-preview', BookPreview);
 
