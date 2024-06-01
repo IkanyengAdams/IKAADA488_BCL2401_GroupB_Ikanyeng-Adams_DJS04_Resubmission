@@ -3,6 +3,7 @@ import './components/book-preview.js'; // Imported the custom element from the b
 import './components/book-details.js';
 import './components/dropdown-menu.js';
 import './components/search-form.js';
+import './components/search-form.js';
 
 
 /* BookConnect class manages the main functionality of the book application.
