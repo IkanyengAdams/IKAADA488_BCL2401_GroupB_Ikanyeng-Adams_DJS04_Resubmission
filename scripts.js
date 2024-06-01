@@ -1,4 +1,5 @@
 import { books, authors, genres, BOOKS_PER_PAGE } from './data.js'
+import './book-preview.js'; // Imported the custom element from the book-preview file.
 
 /* BookConnect class manages the main functionality of the book application.
 *Used class for a more cleaner way to work with objects
