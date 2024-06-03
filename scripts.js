@@ -6,6 +6,7 @@ import './components/search-form.js';
 import './components/search-form.js';
 
 
+
 /* BookConnect class manages the main functionality of the book application.
 *Used class for a more cleaner way to work with objects
 */
